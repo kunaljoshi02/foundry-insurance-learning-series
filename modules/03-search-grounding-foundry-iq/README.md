@@ -117,6 +117,7 @@ See:
 | File | Purpose |
 | --- | --- |
 | [slides.md](slides.md) | Presenter deck for Session 3 |
+| [model-demo-guide.md](model-demo-guide.md) | Slide-linked instructor context and timed live exemplar |
 | [demo-runbook.md](demo-runbook.md) | Portal-first walk-through with optional script path |
 | [lab.md](lab.md) | Learner exercise: add a clause, re-index, validate grounded retrieval |
 | [deploy.ps1](deploy.ps1) | Idempotent setup wrapper with `-WhatIf` support |

@@ -4,8 +4,10 @@ Thanks for improving the Microsoft Foundry Insurance Learning Series.
 
 ## Ground rules
 
-1. **Portal-first, mixed audience.** Every module must work for a learner using only the Azure AI
-   Foundry portal, with scripts as an optional accelerator — never the only path.
+1. **Portal-first, mixed audience.** Use portal-visible paths where supported. For hosted-agent,
+   identity, evaluation, and gateway capabilities requiring code or pre-staged infrastructure,
+   distinguish the instructor's observable demonstration from the operator setup; do not invent
+   portal-only workflows.
 2. **No secrets, no tenant specifics.** Never commit tenant IDs, subscription IDs, resource names,
    endpoints, local paths, or keys. Use `<placeholders>` and `*.example.*` files.
 3. **Idempotent, safe scripts.** `deploy.ps1` / `verify.ps1` / `cleanup.ps1` must support
@@ -25,6 +27,7 @@ Every `modules/NN-*/` folder must contain:
 README.md            overview, learning objectives, architecture
 slides.md            presenter slide deck (Markdown, one slide per `---`)
 demo-runbook.md       step-by-step portal + CLI demo script
+model-demo-guide.md   instructor's lesson-specific live exemplar and reset path
 lab.md                hands-on exercise for learners
 deploy.ps1            idempotent provisioning (WhatIf-capable)
 verify.ps1            read-only post-deploy checks

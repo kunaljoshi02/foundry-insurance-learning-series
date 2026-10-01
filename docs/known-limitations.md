@@ -28,7 +28,7 @@ fallback to the hosted agent's Responses-style endpoint.
 
 - Use a **prompt agent** (not hosted) as the A2A target if you need to demonstrate native Foundry
   A2A without the fallback path.
-- Reference: [Azure AI Foundry Agent Service — Agent-to-agent (A2A) protocol](https://learn.microsoft.com/azure/ai-foundry/agents/concepts/a2a-protocol) and [Hosted agents overview](https://learn.microsoft.com/azure/ai-foundry/agents/concepts/agent-service-overview).
+- Reference: [Foundry Agent Service overview](https://learn.microsoft.com/azure/foundry/agents/overview) and [Hosted agents overview](https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agents). The HTTP 200/error-envelope observation is specific to this repository's reference build, not a general guarantee in those pages.
 
 ## 3. Managed Memory preview: networking and identity scope (module 5)
 
@@ -69,4 +69,4 @@ response — not an OpenAI-style object. Without an APIM policy that mocks this 
 subsequent call fails with a bare `NotFound`. Module 8 ships a sanitized, generic version of this
 policy plus a fully offline unit test that validates the expected response contract.
 
-- Reference: [API Management policies for Azure OpenAI / BYOM backends](https://learn.microsoft.com/azure/api-management/azure-openai-semantic-caching-policy) and [Configure Azure AI Foundry Models connections](https://learn.microsoft.com/azure/ai-foundry/concepts/connections).
+- Reference: [API Management policy reference](https://learn.microsoft.com/azure/api-management/api-management-policies) and [Configure Azure AI Foundry Models connections](https://learn.microsoft.com/azure/ai-foundry/concepts/connections). The metadata probe and response shape are reference-build observations, not a general contract established by these pages.

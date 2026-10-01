@@ -107,6 +107,7 @@ That simplicity is intentional: learners see the smallest working agent before l
 ## Module assets
 
 - [slides.md](slides.md) — presenter deck
+- [model-demo-guide.md](model-demo-guide.md) — slide-linked instructor context and timed live exemplar
 - [demo-runbook.md](demo-runbook.md) — instructor click path and optional script path
 - [lab.md](lab.md) — learner exercise
 - [deploy.ps1](deploy.ps1) — optional accelerator for creating/updating the prompt agent

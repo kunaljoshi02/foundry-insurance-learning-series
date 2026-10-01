@@ -142,6 +142,7 @@ Use evaluation results as a loop, not as a one-time report:
 | File | Purpose |
 | --- | --- |
 | [`slides.md`](slides.md) | Presenter deck |
+| [`model-demo-guide.md`](model-demo-guide.md) | Slide-linked context and timed instructor exemplar |
 | [`demo-runbook.md`](demo-runbook.md) | Step-by-step demo flow |
 | [`lab.md`](lab.md) | Learner exercise |
 | [`deploy.ps1`](deploy.ps1) | Config validation and OTel wiring guidance |

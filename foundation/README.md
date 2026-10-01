@@ -6,7 +6,7 @@ additively. One Bicep template deploys:
 - An Azure AI Foundry account (`Microsoft.CognitiveServices/accounts`, kind `AIServices`),
   `publicNetworkAccess = Enabled` (this is intentionally the public learning foundation — the
   private-networking variant is covered as an explicitly gated, disabled-by-default overlay in
-  [`modules/08-apim-networking-capstone/enterprise-overlay/`](../modules/08-apim-networking-capstone/enterprise-overlay/)).
+  [`modules/08-apim-networking-capstone/infra/enterprise-overlay/`](../modules/08-apim-networking-capstone/infra/enterprise-overlay/)).
 - One Foundry **project** under that account.
 - A configurable **chat model deployment** (default `gpt-4o-mini`; override via parameters).
 - Base RBAC: **Azure AI User** on the project for a learner/operator principal.

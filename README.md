@@ -6,8 +6,9 @@ investigates FNOLs, grounds coverage decisions in policy wording, and delegates 
 adjudication to a specialist agent.
 
 Eight sessions build **additively** on one shared, public Foundry foundation — every module adds
-capability without breaking the ones before it, and every module works end-to-end from the Azure
-AI Foundry portal alone, with scripts as an optional accelerator for faster/repeatable demos.
+capability without breaking the ones before it. The early lessons are portal-first; hosted-agent,
+identity, evaluation, and gateway segments also use prepared assets or offline code demonstrations
+where the capability is not a portal-only workflow.
 
 > ⚠️ This repository never deploys, modifies, or deletes any Azure resources on its own. All
 > `deploy.ps1`/`verify.ps1`/`cleanup.ps1` scripts require a human to run them explicitly, in their
@@ -29,11 +30,29 @@ AI Foundry portal alone, with scripts as an optional accelerator for faster/repe
 See [`course/capability-map.md`](course/capability-map.md) for the full objective → module → asset
 matrix and [`course/instructor-guide.md`](course/instructor-guide.md) for delivery guidance.
 
+## Instructor model demo guides
+
+Each guide is a lesson-specific live exemplar: use its slide-linked opening, copy/paste insurance
+inputs, expected evidence, recovery path, and reset steps alongside the detailed
+`demo-runbook.md`. Prepare the assets and access ahead of class; the guides do not provision Azure
+resources.
+
+| Lesson | Model demo guide |
+| --- | --- |
+| 1 · First claims agent | [Foundations and first agent](modules/01-foundations-first-agent/model-demo-guide.md) |
+| 2 · Reusable capabilities | [Tools, Skills and toolbox](modules/02-tools-skills-toolbox/model-demo-guide.md) |
+| 3 · Evidence-backed coverage | [Search grounding and Foundry IQ](modules/03-search-grounding-foundry-iq/model-demo-guide.md) |
+| 4 · Specialist handoff | [Hosted agents and orchestration](modules/04-hosted-agents-orchestration/model-demo-guide.md) |
+| 5 · Scoped preferences | [Managed Memory and privacy](modules/05-managed-memory-privacy/model-demo-guide.md) |
+| 6 · Access boundaries | [Identity, RBAC, authentication and OBO](modules/06-identity-rbac-auth-obo/model-demo-guide.md) |
+| 7 · Measurable quality | [Observability, evaluation, trust and safety](modules/07-observability-evaluation-trust-safety/model-demo-guide.md) |
+| 8 · Operated capstone | [APIM, networking and operations](modules/08-apim-networking-capstone/model-demo-guide.md) |
+
 ## Repository layout
 
 ```
 foundation/            Shared public Bicep (Foundry account + project + model + RBAC) + preflight
-modules/01..08/         One folder per session: README, slides, runbook, lab, scripts, infra/src/tests
+modules/01..08/         One folder per session: README, slides, model demo guide, runbook, lab, scripts, infra/src/tests
 shared/
   python/               Config loader, secret scanner, small reusable helpers
   powershell/           Common.ps1 (tag-gated cleanup helpers, config loader, prompts)

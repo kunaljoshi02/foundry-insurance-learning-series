@@ -107,6 +107,7 @@ See [docs/operate-checklist.md](docs/operate-checklist.md) for the consolidated 
 | File | Purpose |
 | --- | --- |
 | [slides.md](slides.md) | Presenter deck for the capstone session |
+| [model-demo-guide.md](model-demo-guide.md) | Slide-linked context and timed instructor exemplar |
 | [demo-runbook.md](demo-runbook.md) | Portal-first operator/demo walkthrough |
 | [lab.md](lab.md) | Hands-on exercise for the deployment-probe contract |
 | [deploy.ps1](deploy.ps1) | Safe deployment guidance script with optional policy-application path |
