@@ -1,0 +1,5 @@
+{
+  "foundryEndpoint": "<foundry-endpoint>",
+  "appInsightsConnectionString": "<application-insights-connection-string>",
+  "evalPassThreshold": 0.85
+}

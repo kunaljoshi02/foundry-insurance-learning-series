@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Evaluation dataset case",
+  "description": "One labeled test case for the triage/adjudication evaluation dataset (module 07).",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "test_case_description": {
+      "type": "string",
+      "description": "Human-readable description of what this case validates (required for every case)."
+    },
+    "input": {
+      "type": "object",
+      "properties": {
+        "fnol_narrative": { "type": "string" },
+        "policy_number": { "type": "string" }
+      },
+      "required": ["fnol_narrative"]
+    },
+    "expected": {
+      "type": "object",
+      "properties": {
+        "route": { "type": "string", "enum": ["auto-adjudicate", "manual-review", "fraud-escalation"] },
+        "coverage_cited": { "type": "boolean" }
+      },
+      "required": ["route"]
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["id", "test_case_description", "input", "expected"]
+}

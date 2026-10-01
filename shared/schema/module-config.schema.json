@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Foundry Insurance Learning Series — module config.json",
+  "description": "Common shape every module's config.example.json should follow, extended with module-specific keys.",
+  "type": "object",
+  "properties": {
+    "foundryEndpoint": {
+      "type": "string",
+      "description": "Your Foundry project endpoint, e.g. https://<account>.services.ai.azure.com/api/projects/<project>"
+    },
+    "chatModelDeploymentName": {
+      "type": "string",
+      "description": "Name of the chat model deployment created by the foundation Bicep (default gpt-4o-mini)."
+    },
+    "resourceGroupName": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "object",
+      "properties": {
+        "course": { "const": "foundry-insurance-learning-series" },
+        "module": { "type": "string" }
+      },
+      "required": ["course", "module"]
+    }
+  },
+  "required": ["foundryEndpoint", "chatModelDeploymentName"]
+}

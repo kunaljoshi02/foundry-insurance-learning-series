@@ -1,0 +1,12 @@
+{
+  "$schema": "../../shared/schema/module-config.schema.json",
+  "foundryEndpoint": "https://<your-foundry-resource>.services.ai.azure.com/api/projects/<your-foundry-project>",
+  "chatModelDeploymentName": "<your-chat-model-deployment-name>",
+  "agentName": "policy-coverage-advisor",
+  "agentDescription": "Instruction-only insurance coverage advisor for Session 1 of the curriculum.",
+  "agentInstructionsFile": "src/policy-coverage-advisor.instructions.md",
+  "tags": {
+    "course": "foundry-insurance-learning-series",
+    "module": "01-foundations-first-agent"
+  }
+}

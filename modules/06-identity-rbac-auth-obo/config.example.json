@@ -1,0 +1,31 @@
+{
+  "$schema": "../../shared/schema/module-config.schema.json",
+  "foundryEndpoint": "https://<foundry-account>.services.ai.azure.com/api/projects/<foundry-project>",
+  "foundryProjectResourceId": "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.CognitiveServices/accounts/<foundry-account>/projects/<foundry-project>",
+  "principalId": "<entra-object-id>",
+  "principalType": "User",
+  "roles": [
+    {
+      "name": "Azure AI User"
+    },
+    {
+      "name": "Azure AI Project Manager"
+    },
+    {
+      "name": "Search Index Data Reader",
+      "scopeResourceId": "<optional-search-service-resource-id>"
+    },
+    {
+      "name": "Cognitive Services User",
+      "scopeResourceId": "<optional-cognitive-services-resource-id>"
+    }
+  ],
+  "oboToolboxName": "<obo-toolbox-name>",
+  "oboConnectionName": "<obo-connection-name>",
+  "oboConnectionEndpoint": "https://<mcp-host>/mcp",
+  "oboConnectionAudience": "<upstream-resource-uri-or-app-id>",
+  "tags": {
+    "course": "foundry-insurance-learning-series",
+    "module": "06-identity-rbac-auth-obo"
+  }
+}
