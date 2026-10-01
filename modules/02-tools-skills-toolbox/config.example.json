@@ -1,0 +1,33 @@
+{
+  "foundryEndpoint": "<your-foundry-project-endpoint>",
+  "chatModelDeploymentName": "<your-chat-model-deployment-name>",
+  "agentName": "policy-coverage-advisor",
+  "toolboxName": "insurance-advisor-toolbox",
+  "toolboxVersion": "1.0.0",
+  "skills": [
+    {
+      "name": "adjudication-rationale",
+      "version": "1.0.0"
+    },
+    {
+      "name": "claims-tone",
+      "version": "1.0.0"
+    },
+    {
+      "name": "customer-comms-tone",
+      "version": "1.0.0"
+    },
+    {
+      "name": "regulatory-disclosure",
+      "version": "1.0.0"
+    },
+    {
+      "name": "underwriting-appetite",
+      "version": "1.0.0"
+    }
+  ],
+  "tags": {
+    "course": "foundry-insurance-learning-series",
+    "module": "02-tools-skills-toolbox"
+  }
+}

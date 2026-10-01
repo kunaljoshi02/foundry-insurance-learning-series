@@ -1,0 +1,132 @@
+[
+  {
+    "id": "triage-001",
+    "test_case_description": "Simple escape-of-water claim with clear property damage should be auto-adjudicated.",
+    "input": {
+      "policy_number": "HOME-1001",
+      "fnol_narrative": "Customer reports a washing machine hose burst overnight and damaged kitchen flooring and cabinets."
+    },
+    "expected": {
+      "route": "auto-adjudicate",
+      "coverage_cited": true
+    },
+    "tags": ["property", "water-damage", "fast-track"]
+  },
+  {
+    "id": "triage-002",
+    "test_case_description": "Slip-and-fall bodily injury claims should route to manual review.",
+    "input": {
+      "policy_number": "LIAB-2044",
+      "fnol_narrative": "A customer slipped on a wet supermarket floor, reported an injured wrist, and mentioned missed warning signage."
+    },
+    "expected": {
+      "route": "manual-review",
+      "coverage_cited": true
+    },
+    "tags": ["liability", "injury", "manual-review"]
+  },
+  {
+    "id": "triage-003",
+    "test_case_description": "Potentially staged motor accident should escalate as fraud.",
+    "input": {
+      "policy_number": "AUTO-9981",
+      "fnol_narrative": "Insured describes a suspicious low-speed rear-end collision with contradictory timelines and possible staged involvement."
+    },
+    "expected": {
+      "route": "fraud-escalation",
+      "coverage_cited": true
+    },
+    "tags": ["motor", "fraud", "escalation"]
+  },
+  {
+    "id": "triage-004",
+    "test_case_description": "Burst pipe claim with no injury still stays on the fast path.",
+    "input": {
+      "policy_number": "HOME-2210",
+      "fnol_narrative": "Burst pipe in the laundry room caused sudden water damage to drywall and tile, no one was injured."
+    },
+    "expected": {
+      "route": "auto-adjudicate",
+      "coverage_cited": true
+    },
+    "tags": ["property", "burst-pipe", "fast-track"]
+  },
+  {
+    "id": "triage-005",
+    "test_case_description": "Attorney involvement should force manual review even if coverage may exist.",
+    "input": {
+      "policy_number": "LIAB-3100",
+      "fnol_narrative": "Claimant says an attorney will contact the insurer after an injury on insured premises."
+    },
+    "expected": {
+      "route": "manual-review",
+      "coverage_cited": true
+    },
+    "tags": ["liability", "attorney", "manual-review"]
+  },
+  {
+    "id": "triage-006",
+    "test_case_description": "Narrative containing explicit fraud language should be escalated.",
+    "input": {
+      "policy_number": "AUTO-1122",
+      "fnol_narrative": "Adjuster notes possible fraud after inconsistent statements about where the vehicle was parked before the fire."
+    },
+    "expected": {
+      "route": "fraud-escalation",
+      "coverage_cited": true
+    },
+    "tags": ["motor", "fraud", "inconsistent-story"]
+  },
+  {
+    "id": "triage-007",
+    "test_case_description": "Uncomplicated theft loss without bodily injury can remain auto-adjudicated.",
+    "input": {
+      "policy_number": "HOME-7788",
+      "fnol_narrative": "Customer reports a same-day burglary with stolen electronics and forced entry evidence, no injuries."
+    },
+    "expected": {
+      "route": "auto-adjudicate",
+      "coverage_cited": true
+    },
+    "tags": ["property", "theft", "fast-track"]
+  },
+  {
+    "id": "triage-008",
+    "test_case_description": "Hospital treatment mentioned after an accident should go to manual review.",
+    "input": {
+      "policy_number": "AUTO-4500",
+      "fnol_narrative": "Driver reports a collision and says a passenger went to hospital with neck pain."
+    },
+    "expected": {
+      "route": "manual-review",
+      "coverage_cited": true
+    },
+    "tags": ["motor", "injury", "hospital"]
+  },
+  {
+    "id": "triage-009",
+    "test_case_description": "Suspicious repeat-loss wording should escalate as fraud.",
+    "input": {
+      "policy_number": "HOME-9090",
+      "fnol_narrative": "Third similar fire loss in one year with contradictory appliance timelines and suspicious inventory values."
+    },
+    "expected": {
+      "route": "fraud-escalation",
+      "coverage_cited": true
+    },
+    "tags": ["property", "fraud", "repeat-loss"]
+  },
+  {
+    "id": "triage-010",
+    "test_case_description": "Minor hail damage with no injuries should be suitable for auto adjudication.",
+    "input": {
+      "policy_number": "AUTO-6021",
+      "fnol_narrative": "Policyholder reports hail dents to the hood and roof discovered this morning, no collision and no injuries."
+    },
+    "expected": {
+      "route": "auto-adjudicate",
+      "coverage_cited": true
+    },
+    "tags": ["motor", "hail", "fast-track"]
+  }
+]

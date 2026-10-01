@@ -1,0 +1,11 @@
+{
+  "foundryEndpoint": "<your-foundry-project-endpoint>",
+  "agentName": "<existing-prompt-agent-name>",
+  "memoryStoreName": "<memory-store-name>",
+  "embeddingModelDeploymentName": "text-embedding-3-small",
+  "memoryUpdateDelaySeconds": 1,
+  "tags": {
+    "course": "foundry-insurance-learning-series",
+    "module": "05-managed-memory-privacy"
+  }
+}

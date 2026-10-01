@@ -1,0 +1,16 @@
+{
+  "foundryEndpoint": "<your-foundry-project-endpoint>",
+  "chatModelDeploymentName": "<your-chat-model-deployment-name>",
+  "searchServiceName": "<your-search-service-name>",
+  "searchIndexName": "<your-search-index-name>",
+  "agentName": "policy-coverage-advisor",
+  "searchConnectionName": "policy-wordings-search",
+  "resourceGroupName": "<your-resource-group-name>",
+  "subscriptionId": "<your-subscription-id>",
+  "location": "<your-azure-region>",
+  "embeddingDeploymentName": "<optional-embedding-model-deployment-name>",
+  "tags": {
+    "course": "foundry-insurance-learning-series",
+    "module": "03-search-grounding-foundry-iq"
+  }
+}

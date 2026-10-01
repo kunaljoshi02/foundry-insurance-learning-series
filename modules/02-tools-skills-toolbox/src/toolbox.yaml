@@ -1,0 +1,12 @@
+description: Reusable insurance-advisor toolbox for the policy-coverage-advisor learning module
+skills:
+  - name: adjudication-rationale
+  - name: claims-tone
+  - name: customer-comms-tone
+  - name: regulatory-disclosure
+  - name: underwriting-appetite
+tools:
+  - type: code_interpreter
+    name: premium-and-excess-calculator
+    container:
+      type: auto

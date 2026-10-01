@@ -1,0 +1,65 @@
+<policies>
+    <inbound>
+        <base />
+
+        <!--
+            Mandatory BYOM probe mock:
+            Foundry validates the gateway target with GET /deployments/{model}
+            and does NOT send api-version. The response must look like an ARM
+            Cognitive Services deployment resource or later calls can fail with
+            a bare NotFound.
+        -->
+        <return-response>
+            <set-status code="200" reason="OK" />
+
+            <!-- Return JSON so the caller sees a deployment resource shape. -->
+            <set-header name="Content-Type" exists-action="override">
+                <value>application/json</value>
+            </set-header>
+
+            <!--
+                Keep the shape ARM-like:
+                - id
+                - name
+                - type = Microsoft.CognitiveServices/accounts/deployments
+                - sku
+                - properties.model
+                - properties.provisioningState
+            -->
+            <set-body>{
+  "id": "/subscriptions/&lt;subscription-id&gt;/resourceGroups/&lt;resource-group&gt;/providers/Microsoft.CognitiveServices/accounts/&lt;account-name&gt;/deployments/{{deployment-name}}",
+  "name": "{{deployment-name}}",
+  "type": "Microsoft.CognitiveServices/accounts/deployments",
+  "sku": {
+    "name": "GlobalStandard",
+    "capacity": 10
+  },
+  "properties": {
+    "model": {
+      "format": "OpenAI",
+      "name": "{{deployment-name}}",
+      "version": "{{model-version}}"
+    },
+    "provisioningState": "Succeeded",
+    "capabilities": {
+      "chatCompletion": "true",
+      "responses": "true"
+    },
+    "raiPolicyName": "Microsoft.DefaultV2"
+  }
+}</set-body>
+        </return-response>
+    </inbound>
+
+    <backend>
+        <base />
+    </backend>
+
+    <outbound>
+        <base />
+    </outbound>
+
+    <on-error>
+        <base />
+    </on-error>
+</policies>

@@ -1,0 +1,75 @@
+<policies>
+    <inbound>
+        <base />
+
+        <!-- Validate the caller's Microsoft Entra token before any model traffic is forwarded. -->
+        <validate-azure-ad-token
+            tenant-id="{{tenant-id}}"
+            header-name="Authorization"
+            failed-validation-httpcode="401"
+            failed-validation-error-message="Unauthorized. A valid Entra token is required.">
+            <audiences>
+                <!-- The backend audience is the Azure AI / Cognitive Services resource audience. -->
+                <audience>https://cognitiveservices.azure.com</audience>
+            </audiences>
+        </validate-azure-ad-token>
+
+        <!-- Enforce a per-user token budget at the gateway. -->
+        <llm-token-limit
+            counter-key="@(context.Request.Headers.GetValueOrDefault(&quot;x-user-id&quot;,&quot;anonymous&quot;))"
+            tokens-per-minute="20000"
+            estimate-prompt-tokens="false"
+            tokens-consumed-header-name="x-tokens-consumed"
+            remaining-tokens-header-name="x-tokens-remaining" />
+
+        <!-- Emit gateway-side token metrics with dimensions that operators can group by. -->
+        <llm-emit-token-metric namespace="genai">
+            <dimension name="API" value="@(context.Api.Name)" />
+            <dimension name="Operation" value="@(context.Operation.Name)" />
+            <dimension name="User" value="@(context.Request.Headers.GetValueOrDefault(&quot;x-user-id&quot;,&quot;anonymous&quot;))" />
+            <dimension name="Workload" value="{{workload-name}}" />
+        </llm-emit-token-metric>
+
+        <!-- Point APIM at the real backend URL for the Foundry or Azure AI endpoint. -->
+        <set-backend-service base-url="{{backend-url}}" />
+
+        <!-- Normalize the public APIM path so the backend sees the expected /openai/... form. -->
+        <rewrite-uri template="@{
+            var path = context.Request.Url.Path;
+            var gatewayPrefix = &quot;/foundry&quot;;
+            var index = path.IndexOf(gatewayPrefix, System.StringComparison.OrdinalIgnoreCase);
+            var remainder = index >= 0 ? path.Substring(index + gatewayPrefix.Length) : path;
+            if (!remainder.StartsWith(&quot;/&quot;)) { remainder = &quot;/&quot; + remainder; }
+            if (!remainder.StartsWith(&quot;/openai&quot;, System.StringComparison.OrdinalIgnoreCase)) { remainder = &quot;/openai&quot; + remainder; }
+            return remainder;
+        }" copy-unmatched-params="true" />
+
+        <!-- Authenticate APIM to the backend with managed identity rather than forwarding the caller token. -->
+        <authentication-managed-identity
+            resource="https://cognitiveservices.azure.com"
+            output-token-variable-name="msi-token"
+            ignore-error="false" />
+
+        <!-- Replace the inbound Authorization header with the backend managed-identity token. -->
+        <set-header name="Authorization" exists-action="override">
+            <value>@(&quot;Bearer &quot; + (string)context.Variables[&quot;msi-token&quot;])</value>
+        </set-header>
+    </inbound>
+
+    <backend>
+        <base />
+    </backend>
+
+    <outbound>
+        <base />
+
+        <!-- Add a simple diagnostic header so operators can confirm the gateway path was used. -->
+        <set-header name="x-foundry-gateway" exists-action="override">
+            <value>{{gateway-name}}</value>
+        </set-header>
+    </outbound>
+
+    <on-error>
+        <base />
+    </on-error>
+</policies>

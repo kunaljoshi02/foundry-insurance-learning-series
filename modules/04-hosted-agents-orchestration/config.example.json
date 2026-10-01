@@ -1,0 +1,7 @@
+{
+  "foundryEndpoint": "<https://<foundry-endpoint>/api/projects/<project>>",
+  "azdEnvironmentName": "<module04-hosted-agents>",
+  "triageAgentName": "<claims-intake-triage-agent>",
+  "adjudicatorAgentName": "<coverage-settlement-adjudicator>"
+}
+

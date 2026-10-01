@@ -1,0 +1,6 @@
+{
+  "foundryEndpoint": "<foundry-project-endpoint>",
+  "apimGatewayUrl": "<apim-gateway-url>",
+  "chatModelDeploymentName": "<chat-model-deployment-name>",
+  "enableEnterpriseOverlay": false
+}

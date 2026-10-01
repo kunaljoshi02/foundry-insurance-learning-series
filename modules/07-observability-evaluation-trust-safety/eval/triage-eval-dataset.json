@@ -1,0 +1,158 @@
+[
+  {
+    "id": "auto-rock-chip",
+    "test_case_description": "Straightforward windscreen damage from road debris should stay on the auto-adjudicate path.",
+    "input": {
+      "fnol_narrative": "A small rock hit the windshield during a motorway commute. The driver submitted same-day photos and asked for repair approval.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "auto-adjudicate",
+      "coverage_cited": false
+    },
+    "tags": ["motor", "glass", "happy-path"]
+  },
+  {
+    "id": "auto-pipe-burst",
+    "test_case_description": "A documented escape-of-water claim with no dispute indicators should be auto-adjudicated.",
+    "input": {
+      "fnol_narrative": "A kitchen pipe burst overnight, damaging cupboards and flooring. The claimant reported it the same morning with plumber photos and invoices.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "auto-adjudicate",
+      "coverage_cited": false
+    },
+    "tags": ["home", "water", "documented"]
+  },
+  {
+    "id": "manual-liability-dispute",
+    "test_case_description": "A third-party liability dispute should go to manual review.",
+    "input": {
+      "fnol_narrative": "A third party alleges the insured reversed into their parked car, but the insured says the other driver moved first and disputes liability.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "manual-review",
+      "coverage_cited": false
+    },
+    "tags": ["motor", "liability", "third-party"]
+  },
+  {
+    "id": "manual-injury",
+    "test_case_description": "Any injury reference should force manual review rather than automatic settlement.",
+    "input": {
+      "fnol_narrative": "Following a rear-end collision, the driver reports neck injury symptoms and says a passenger may seek medical costs.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "manual-review",
+      "coverage_cited": false
+    },
+    "tags": ["motor", "injury", "bodily-harm"]
+  },
+  {
+    "id": "fraud-altered-receipts",
+    "test_case_description": "Altered receipts should escalate to the fraud path.",
+    "input": {
+      "fnol_narrative": "The claimant supplied altered receipts for electronics allegedly stolen in a burglary and asked for urgent reimbursement.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "fraud-escalation",
+      "coverage_cited": false
+    },
+    "tags": ["home", "burglary", "fraud-signal"]
+  },
+  {
+    "id": "fraud-story-change",
+    "test_case_description": "A narrative that changed materially after first report should escalate for fraud review.",
+    "input": {
+      "fnol_narrative": "The claimant changed the story twice about when the laptop was stolen and now says the serial number cannot be provided.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "fraud-escalation",
+      "coverage_cited": false
+    },
+    "tags": ["contents", "story-shift", "fraud-signal"]
+  },
+  {
+    "id": "manual-police-report-pending",
+    "test_case_description": "Cases waiting on police documentation should remain in manual review.",
+    "input": {
+      "fnol_narrative": "A bicycle theft was reported, but the police report is pending and the claimant cannot yet provide the reference number.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "manual-review",
+      "coverage_cited": false
+    },
+    "tags": ["theft", "documentation", "pending"]
+  },
+  {
+    "id": "auto-freezer-failure",
+    "test_case_description": "A simple freezer breakdown contents-loss narrative with clear documentation can be auto-adjudicated.",
+    "input": {
+      "fnol_narrative": "A freezer failed during the night, spoiling food. The claimant included purchase receipts for replacement groceries and appliance service notes.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "auto-adjudicate",
+      "coverage_cited": false
+    },
+    "tags": ["home", "appliance", "low-complexity"]
+  },
+  {
+    "id": "manual-commercial-use",
+    "test_case_description": "Possible commercial use of a personal vehicle should go to manual review.",
+    "input": {
+      "fnol_narrative": "The insured says the car was being used for commercial use deliveries when the collision occurred and is unsure whether business use was declared.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "manual-review",
+      "coverage_cited": false
+    },
+    "tags": ["motor", "commercial-use", "coverage-review"]
+  },
+  {
+    "id": "fraud-multiple-prior-claims",
+    "test_case_description": "Multiple prior claims combined with a suspicious new loss should escalate.",
+    "input": {
+      "fnol_narrative": "The claimant reports another jewellery theft only three weeks after two prior claims and the adjuster notes multiple prior claims with inconsistent purchase evidence.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "fraud-escalation",
+      "coverage_cited": false
+    },
+    "tags": ["contents", "fraud-signal", "repeat-claim"]
+  },
+  {
+    "id": "manual-witness-disagreement",
+    "test_case_description": "Conflicting witness accounts should route to manual review.",
+    "input": {
+      "fnol_narrative": "Two neighbours give conflicting accounts of whether the insured's tree or the storm itself caused the fence collapse, creating witness disagreement.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "manual-review",
+      "coverage_cited": false
+    },
+    "tags": ["property", "storm", "witnesses"]
+  },
+  {
+    "id": "auto-minor-smoke-damage",
+    "test_case_description": "Minor, well-documented smoke damage without liability or fraud indicators can stay on the automated path.",
+    "input": {
+      "fnol_narrative": "A toaster fire caused minor smoke damage in the kitchen. Photos, a repair estimate, and same-day incident details were submitted.",
+      "policy_number": "<policy-number>"
+    },
+    "expected": {
+      "route": "auto-adjudicate",
+      "coverage_cited": false
+    },
+    "tags": ["home", "fire", "documented"]
+  }
+]

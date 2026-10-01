@@ -1,0 +1,34 @@
+# Local configuration (copied from *.example.json)
+**/config.json
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Node (if any tooling added later)
+node_modules/
+
+# Azure / azd
+.azure/
+*.bicep.json
+
+# PowerShell
+*.ps1.bak
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# Logs and local artifacts
+*.log
+out/
+.outputs/
