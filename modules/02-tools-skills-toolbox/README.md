@@ -100,6 +100,7 @@ reconfiguring each tool and Skill one-by-one.
 | File | Purpose |
 | --- | --- |
 | [`slides.md`](slides.md) | Presenter deck |
+| [`model-demo-guide.md`](model-demo-guide.md) | Slide-linked instructor context and timed live exemplar |
 | [`demo-runbook.md`](demo-runbook.md) | Portal-first instructor demo |
 | [`lab.md`](lab.md) | Learner exercise |
 | [`deploy.ps1`](deploy.ps1) | Idempotent toolbox provisioning wrapper |

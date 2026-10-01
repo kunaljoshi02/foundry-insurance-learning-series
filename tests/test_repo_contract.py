@@ -63,6 +63,7 @@ class TestModuleStructure(unittest.TestCase):
         "README.md",
         "slides.md",
         "demo-runbook.md",
+        "model-demo-guide.md",
         "lab.md",
         "deploy.ps1",
         "verify.ps1",

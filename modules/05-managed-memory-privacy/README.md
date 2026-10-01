@@ -128,6 +128,7 @@ That creates a clean before/after experience without touching sensitive data.
 ## Module assets
 
 - [slides.md](slides.md) — presenter deck
+- [model-demo-guide.md](model-demo-guide.md) — slide-linked context and timed instructor exemplar
 - [demo-runbook.md](demo-runbook.md) — portal-first demo with privacy steps
 - [lab.md](lab.md) — learner exercise
 - [deploy.ps1](deploy.ps1) — optional accelerator for creating/attaching the Memory store

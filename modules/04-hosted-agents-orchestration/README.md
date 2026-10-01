@@ -100,6 +100,7 @@ Even though this is the most code-heavy module, learners should still watch the 
 | --- | --- |
 | `README.md` | Session overview and architecture |
 | `slides.md` | Speaker deck for the session |
+| [`model-demo-guide.md`](model-demo-guide.md) | Slide-linked instructor context and timed live exemplar |
 | `demo-runbook.md` | Live demo walkthrough |
 | `lab.md` | Hands-on exercise |
 | `deploy.ps1` | Prints learner-run `azd` commands after validating `config.json` |
@@ -141,4 +142,3 @@ That test suite proves the central rule of the module:
 - normal JSON-RPC success **does not** fall back
 - `HostedAgentNotSupported` **does** fall back
 - unrelated JSON-RPC errors are **not** treated as fallback triggers
-

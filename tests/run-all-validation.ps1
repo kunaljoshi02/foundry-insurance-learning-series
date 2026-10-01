@@ -181,8 +181,18 @@ print('No findings.')
     }
 }
 
-# 8. Python unit tests across all modules (offline only).
+# 8. Repository contract tests and Python unit tests across all modules (offline only).
 if ($pythonCmd) {
+    Test-Step 'Repository contract tests' {
+        Push-Location $RepoRoot
+        try {
+            $output = & $pythonCmd -m unittest discover -s tests -v 2>&1
+            $exit = $LASTEXITCODE
+            if ($exit -ne 0) { throw ($output -join "`n") }
+            Write-Host ($output -join "`n")
+        }
+        finally { Pop-Location }
+    }
     Test-Step 'Python unit tests (all modules)' {
         $testDirs = Get-ChildItem -Path (Join-Path $RepoRoot 'modules') -Recurse -Directory -Filter 'tests' -ErrorAction SilentlyContinue
         $anyRan = $false

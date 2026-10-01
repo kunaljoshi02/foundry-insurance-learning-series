@@ -129,6 +129,7 @@ over the requested roles from [`infra/rbac.bicep`](infra/rbac.bicep).
 | File | Purpose |
 | --- | --- |
 | [`slides.md`](slides.md) | Presenter deck |
+| [`model-demo-guide.md`](model-demo-guide.md) | Slide-linked context and timed instructor exemplar |
 | [`demo-runbook.md`](demo-runbook.md) | Portal + Bicep walkthrough |
 | [`lab.md`](lab.md) | Hands-on auth-context classifier exercise |
 | [`deploy.ps1`](deploy.ps1) | Idempotent RBAC + OBO toolbox provisioning wrapper |
